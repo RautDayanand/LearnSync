@@ -11,32 +11,78 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError(""); // reset error
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setError(""); // reset error
 
-    // Basic validation
-    if (!name || !email || !password1 || !password2) {
-      setError("Please fill in all fields");
-      return;
-    }
+  //   // Basic validation
+  //   if (!name || !email || !password1 || !password2) {
+  //     setError("Please fill in all fields");
+  //     return;
+  //   }
 
-    if (password1 !== password2) {
-      setError("Passwords do not match");
-      return;
-    }
+  //   if (password1 !== password2) {
+  //     setError("Passwords do not match");
+  //     return;
+  //   }
 
-    if (!agreed) {
-      setError("You must agree to the terms and conditions");
-      return;
-    }
+  //   if (!agreed) {
+  //     setError("You must agree to the terms and conditions");
+  //     return;
+  //   }
 
-    // If all validations pass
-    console.log("SignUp Data:", { name, email, password1 });
+  //   // If all validations pass
+  //   console.log("SignUp Data:", { name, email, password1 });
 
-    // Redirect to login page
-    navigate("/login");
-  };
+  //   // Redirect to login page
+  //   navigate("/login");
+  // };
+
+
+      const handleSubmit = async (e) => {
+      e.preventDefault();
+      setError("");
+
+      if (!name || !email || !password1 || !password2) {
+        setError("Please fill in all fields");
+        return;
+      }
+
+      if (password1 !== password2) {
+        setError("Passwords do not match");
+        return;
+      }
+
+      if (!agreed) {
+        setError("You must agree to the terms and conditions");
+        return;
+      }
+
+      const userData = {
+        username: name,
+        email: email,
+        password: password1,
+      };
+
+      try {
+        const response = await fetch("http://localhost:8080/api/users/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData),
+        });
+
+        if (response.ok) {
+          alert("Signup successful!");
+          navigate("/login");
+        } else {
+          setError("Signup failed. Try again!");
+        }
+      } catch (err) {
+        console.error(err);
+        setError("Server error. Try again later.");
+      }
+    };
+
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
