@@ -1,10 +1,13 @@
 import React from 'react'
+import Navbar from './Navbar';
+import { Outlet } from 'react-router-dom';
+import Footer from './Footer';
 function Home(){
     return (
         <>
-        <h1>
-            Welcome Dayanand
-        </h1>
+        <Navbar/>
+        <Outlet />
+        <Footer/>
         </>
     )
 }
