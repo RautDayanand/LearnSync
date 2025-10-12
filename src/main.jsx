@@ -10,10 +10,11 @@ import Login from './components/Login.jsx'
 import Layout from './components/Layout.jsx'
 import Navbar from './components/Navbar.jsx'
 import Home from './components/Home.jsx'
+import TodoApp from './components/Todo/TodoApp.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<Home />} >
+    <Route path='/' element={<TodoApp />} >
       <Route index element={<SignUp />} />
       <Route path='signup' element={<SignUp />} />
       <Route path='login' element={<Login />} />
