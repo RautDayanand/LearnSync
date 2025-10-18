@@ -1,7 +1,17 @@
 import React from "react";
+import {useState} from'react';
+
 import "./Todo.css"; // Changed to Todo.css
+import { NavLink } from "react-router-dom";
 
 function TodoList({ tasks, updateTask, deleteTask }) {
+
+  const [time,setTime] =useState(0);
+  // const setTimer= ()=>{
+
+  // }
+  
+
   return (
     <div className="todo-list">
       {tasks.map((t, i) => (
@@ -28,6 +38,20 @@ function TodoList({ tasks, updateTask, deleteTask }) {
               <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
             </svg>
           </button>
+
+        <button >
+          <NavLink to="/setTimerScreen" className="text-primary">
+            Set Timer
+          </NavLink>
+          
+        </button>
+
+
+          
+
+
+
+
         </div>
       ))}
     </div>
