@@ -17,7 +17,7 @@ import SetTimerScreen from './components/Timer/SetTimerScreen.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<TodoApp />} />
+      <Route path='/TodoApp' element={<TodoApp />} />
       <Route path='signup' element={<SignUp />} />
       <Route path='login' element={<Login />} />
       <Route path='Home' element={<Home />} />

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-function SetTimerScreen() {
+function SetTimerScreen({tasks}) {
   const [time, setTime] = useState("00:00:00");
   const navigate = useNavigate();
+  const location = useLocation();
+const taskName = location.state?.taskName;
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -17,12 +20,13 @@ function SetTimerScreen() {
     const [hours, minutes, seconds] = parts;
     const totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
-    navigate("/TimerScreen", { state: { totalSeconds } });
+    navigate("/TimerScreen", { state: { totalSeconds ,taskName} });
   };
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow" style={{ maxWidth: "400px", width: "100%" }}>
+        <h1>{taskName}</h1>
         <h3 className="card-title text-center mb-4">Set Your Timer</h3>
         <form onSubmit={onSubmit}>
           <div className="mb-3">

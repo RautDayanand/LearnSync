@@ -6,6 +6,7 @@ function Task({addTask}){
     const[task,setTask]=useState("");
     const[isComplete,setIsComplete]=useState(false);
     
+    
     const handleSubmit = (e)=>{
         e.preventDefault();
         addTask({task:task,isComplete:isComplete});
@@ -32,19 +33,11 @@ function Task({addTask}){
                             <path d="M12 5v14M5 12h14"/>
                         </svg>
                     </button>
+
+                    
                 </div>
                 
-                <div className="checkbox-group">
-                    <label className="complete-checkbox">
-                        <input
-                            type="checkbox"
-                            checked={isComplete}
-                            onChange={(e)=>setIsComplete(e.target.checked)}
-                        />
-                        <span className="checkmark"></span>
-                        Mark as completed
-                    </label>
-                </div>
+                
             </form>
         </div>
     )

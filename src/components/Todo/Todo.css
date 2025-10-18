@@ -254,3 +254,33 @@
         justify-content: center;
     }
 }
+
+
+.timer-btn {
+  background-color: #f0f0f0; /* light gray */
+  border: 1px solid #ccc;    /* subtle border */
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.timer-btn:hover {
+  background-color: #e0e0e0; /* slightly darker on hover */
+  transform: scale(1.05);     /* subtle grow */
+}
+
+.timer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;  /* darker gray for icon */
+  text-decoration: none;
+}
+
+.timer-btn svg {
+  fill: #555; /* match icon color */
+}
